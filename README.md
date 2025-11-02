@@ -1,450 +1,406 @@
-# Specify Writer - 通用写作标准化工具集
+# Specify Writer
 
-**版本**: v1.0  
-**创建日期**: 2025-01-02  
-**作者**: AI Assistant
+<div align="center">
 
----
+**基于AI的七阶段结构化写作工作流系统**
 
-## 项目简介
+[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/yourusername/specify-writer)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-production-brightgreen.svg)](https://github.com/yourusername/specify-writer)
 
-Specify Writer 是一套完整的通用写作标准化工具集,支持多种文体类型的创作,包括学术论文、技术文章、创意写作和专业文档。本工具集提供了模板、命令、Agent和脚本,帮助用户高效地创作高质量的文档。
+[快速开始](#-快速开始) • [功能特性](#-功能特性) • [文档](#-文档) • [示例](#-使用示例)
 
----
-
-## 支持的文体类型
-
-### 1. 学术写作 (Academic Writing)
-- **研究论文** (Research Paper): 完整的学术研究论文结构
-- **文献综述** (Literature Review): 系统性文献综述模板
-- **案例研究** (Case Study): 企业案例分析模板
-
-### 2. 文章写作 (Article Writing)
-- **技术文章** (Technical Article): 技术博客和深度文章
-- **博客文章** (Blog Post): 轻松易读的博客内容
-- **教程** (Tutorial): 分步骤的教学文档
-- **报告** (Report): 正式的分析报告
-
-### 3. 创意写作 (Creative Writing)
-- **小说** (Novel): 长篇、中篇、短篇小说
-- **电影剧本** (Screenplay): 电影和电视剧剧本
-- **话剧剧本** (Stage Play): 舞台剧和音乐剧
-- **诗歌** (Poetry): 现代诗、古体诗、格律诗
-- **人物传记** (Character Biography): 历史人物和虚构人物传记
-
-### 4. 专业文档 (Professional Documentation)
-- **项目文档** (Project Documentation): 软件和工程项目文档
-- **技术规格说明书** (Technical Specification): 系统和API规格
-- **商业提案** (Business Proposal): 项目和合作提案
-- **用户手册** (User Manual): 产品使用说明
+</div>
 
 ---
 
-## 快速开始
+## 📖 项目简介
 
-### 步骤1: 初始化项目
+**Specify Writer** 是一个专业的AI辅助写作工作流系统，通过**七阶段结构化流程**帮助您创作高质量的长篇内容。无论是学术论文、长篇小说还是电影剧本，Specify Writer都能提供系统化的创作支持。
 
-使用 `writer.init` 命令创建新的写作项目:
+### 🎯 核心理念
 
-```
-请使用 writer.init 命令初始化项目
+- **结构化流程**: 七阶段工作流确保创作过程系统化、可控
+- **AI辅助**: 7个专业Agent在每个阶段提供智能辅助
+- **质量保证**: 创作宪法和合规性验证确保内容质量
+- **跨工具兼容**: 支持Augment Code、Cursor、Windsurf等主流AI编程工具
 
-提供以下信息:
-- 项目名称: my-novel
-- 文体类型: creative
-- 具体类型: novel
-- 项目路径: ./projects/my-novel
-```
+### ✨ 适用场景
 
-系统将自动创建:
-- 项目目录结构
-- 相应的模板文件
-- 项目配置文件 (project-config.json)
-
----
-
-### 步骤2: 创建大纲
-
-使用 `writer.outline` 命令创建写作大纲:
-
-```
-请使用 writer.outline 命令创建大纲
-
-提供以下信息:
-- 项目路径: ./projects/my-novel
-- 大纲类型: new
-```
-
-系统将根据文体类型生成相应的大纲结构。
+| 场景 | 示例 | 字数规模 |
+|------|------|----------|
+| **学术论文** | MEM学位论文、研究报告 | 3-10万字 |
+| **长篇小说** | 科幻、奇幻、悬疑小说 | 10-30万字 |
+| **电影剧本** | 电影、电视剧剧本 | 2-5万字 |
+| **技术文档** | 系统设计文档、API文档 | 1-5万字 |
 
 ---
 
-### 步骤3: 定义风格(可选但推荐)
+## 🚀 快速开始
 
-使用 `writer.style` 命令分析参考文本或定义风格:
+### 前置要求
 
-```
-请使用 writer.style 命令定义风格
+- **AI编程工具**: Augment Code（推荐）、Cursor、Windsurf或Cline
+- **PowerShell**: Windows 5.1+ 或 PowerShell Core 7+
+- **编辑器**: VS Code（推荐）或任何文本编辑器
 
-提供以下信息:
-- 项目路径: ./projects/my-novel
-- 操作类型: define
-- 风格要求: 第三人称全知视角,诗意叙事风格
-```
+### 安装步骤
 
-风格文档将保存到 `writer_style/my-novel_style.md`
+1. **克隆或下载项目**
+   ```bash
+   git clone https://github.com/yourusername/specify-writer.git
+   cd specify-writer
+   ```
 
----
+2. **配置AI工具**（以Augment Code为例）
+   - 打开项目文件夹
+   - AI工具会自动识别`.augment`配置
+   - 开始使用`/writer:*`命令
 
-### 步骤4: 开始写作
+### 5分钟快速体验
 
-使用 `writer.draft` 命令撰写内容:
+```bash
+# 1. 初始化一个小说项目
+/writer:init "时光旅行者"
 
-```
-请使用 writer.draft 命令撰写内容
-
-提供以下信息:
-- 项目路径: ./projects/my-novel
-- 操作类型: write
-- 目标章节: 第一章
-- 写作指示: 撰写开场章节,介绍主角和故事背景
-```
-
-universal-writer Agent将根据文体类型和风格要求生成内容。
-
----
-
-### 步骤5: 质量审查
-
-使用 `writer.review` 命令审查文档质量:
-
-```
-请使用 writer.review 命令审查文档
-
-提供以下信息:
-- 项目路径: ./projects/my-novel
-- 审查范围: chapter (审查单个章节)
-- 审查重点: all (全面审查)
-```
-
-quality-reviewer Agent将生成详细的审查报告。
-
----
-
-### 步骤6: 导出文档
-
-使用 `writer.export` 命令导出为其他格式:
-
-```
-请使用 writer.export 命令导出文档
-
-提供以下信息:
-- 项目路径: ./projects/my-novel
-- 导出格式: pdf
-- 输出路径: ./output/my-novel.pdf
+# 2. 执行七阶段流程
+/writer:1-research      # 内容调研
+/writer:2-design        # 风格设计
+/writer:3-constitution  # 创作宪法
+/writer:4-outline       # 大纲编写
+/writer:5-validate      # 合规性审查
+/writer:6-draft         # 章节编写
+/writer:7-finalize      # 最终审查
 ```
 
 ---
 
-## 命令参考
+## 🎨 功能特性
 
-### writer.init - 初始化项目
+### 七阶段工作流
 
-创建新的写作项目,设置目录结构和配置文件。
+| 阶段 | 名称 | 功能 | 输出 |
+|------|------|------|------|
+| 0️⃣ | **初始化** | 创建项目结构，设置基本配置 | 项目目录、配置文件 |
+| 1️⃣ | **内容调研** | 确定写作类型、目标受众、核心主题 | 调研报告 |
+| 2️⃣ | **风格设计** | 定义写作风格、世界观、角色框架 | 设计文档 |
+| 3️⃣ | **创作宪法** | 制定创作规则、质量标准、禁止事项 | 创作宪法 |
+| 4️⃣ | **大纲编写** | 规划整体结构、章节划分、情节线索 | 详细大纲 |
+| 5️⃣ | **合规性审查** | 验证大纲是否符合创作宪法 | 验证报告 |
+| 6️⃣ | **章节编写** | 基于大纲编写具体章节内容 | 章节文件 |
+| 7️⃣ | **最终审查** | 全文质量检查、导出成品 | 最终成品 |
 
-**参数**:
-- **项目名称**: 项目的唯一标识符
-- **文体类型**: academic / article / creative / professional
-- **具体类型**: 根据文体类型选择具体模板
-- **项目路径**: 可选,默认为当前目录
+### 7个专业Agent
 
-**输出**:
-- 项目目录结构
-- 模板文件副本
-- project-config.json配置文件
+每个阶段都有专门的AI助手：
 
----
+- 🔍 **Research Specialist** - 内容调研专家
+- 🎨 **Design Architect** - 设计架构师
+- 📜 **Constitution Writer** - 宪法编写者
+- 📋 **Outline Planner** - 大纲规划师
+- ✅ **Compliance Validator** - 合规验证者
+- ✍️ **Content Writer** - 内容编写者
+- 🔎 **Quality Reviewer** - 质量审查者
 
-### writer.outline - 创建大纲
+### 核心优势
 
-根据文体类型创建或更新写作大纲。
-
-**参数**:
-- **项目路径**: 项目所在路径
-- **大纲类型**: new (创建新大纲) / update (更新现有大纲)
-- **大纲内容**: 可选,用户提供的大纲要点
-
-**输出**:
-- outline.md大纲文件
-
----
-
-### writer.draft - 撰写内容
-
-撰写或编辑文档内容,支持章节级别的写作。
-
-**参数**:
-- **项目路径**: 项目所在路径
-- **操作类型**: write (撰写新内容) / edit (编辑现有内容)
-- **目标章节**: 章节编号或标题
-- **写作指示**: 具体的写作要求和指导
-
-**输出**:
-- 撰写的章节内容
-- 更新的主文档文件
+✅ **结构化流程** - 七阶段确保创作过程系统化  
+✅ **质量保证** - 创作宪法和合规性验证  
+✅ **AI辅助** - 每个阶段都有专业Agent支持  
+✅ **跨工具兼容** - 支持主流AI编程工具  
+✅ **丰富模板** - 提供多种文体的专业模板  
+✅ **示例项目** - 3个完整示例供参考
 
 ---
 
-### writer.style - 风格分析与定义
+## 📚 文档
 
-分析文本风格或定义新的风格指南。
+### 核心文档
 
-**参数**:
-- **项目路径**: 项目所在路径
-- **操作类型**: analyze (分析现有文本) / define (定义新风格)
-- **参考文本**: 如果是analyze,提供文本路径或内容
-- **风格要求**: 如果是define,描述期望的风格
+- **[USER_GUIDE.md](USER_GUIDE.md)** - 完整用户指南（300+行）
+- **[AGENTS.md](AGENTS.md)** - 系统架构和Agent说明
+- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - 测试指南
 
-**输出**:
-- writer_style/[project-name]_style.md风格文档
+### 示例项目
 
----
-
-### writer.review - 质量审查
-
-审查文档质量,提供改进建议。
-
-**参数**:
-- **项目路径**: 项目所在路径
-- **审查范围**: full (全文审查) / chapter (章节审查)
-- **审查重点**: content / style / format / all
-
-**输出**:
-- review-report_[日期].md审查报告
-- 评分和改进建议
+- **[examples/sample-novel/](examples/sample-novel/)** - 科幻小说《时光旅行者》
+- **[examples/sample-paper/](examples/sample-paper/)** - 学术论文《LLM数据治理研究》
+- **[examples/sample-screenplay/](examples/sample-screenplay/)** - 电影剧本《最后的代码》
 
 ---
 
-### writer.export - 导出文档
+## 🗂️ 项目结构
 
-将Markdown文档导出为其他格式。
-
-**参数**:
-- **项目路径**: 项目所在路径
-- **导出格式**: pdf / docx / html
-- **输出路径**: 可选,默认为项目目录
-
-**输出**:
-- 指定格式的文档文件
-
----
-
-## Agent说明
-
-### universal-writer
-
-通用写作Agent,支持所有文体类型的创作。
-
-**核心能力**:
-- **多文体写作**: 自动适应学术、文章、创意、专业四大文体
-- **风格一致性**: 严格遵循风格文档要求
-- **架构优先**: 创意写作项目强制检查architecture.md
-- **配套文档**: 自动创建章节笔记、角色档案等配套文档
-
-**工作流程**:
-1. 理解需求 → 识别文体类型,检查架构和风格文档
-2. 内容规划 → 创建大纲,划分章节
-3. 内容创作 → 遵循文体规范,保持风格一致
-4. 质量检查 → 自我验证内容、风格、格式
-
----
-
-### style-analyzer
-
-风格分析Agent,分析文本风格特征,生成风格文档。
-
-**核心能力**:
-- **语言风格识别**: 语调、人称、时态、语气
-- **词汇分析**: 复杂度、术语使用、常用词汇
-- **句式分析**: 句长、句式结构、段落长度
-- **结构分析**: 章节组织、标题风格、格式规范
-
-**输出**:
-- 结构化的风格文档
-- 可操作的写作建议
-- 示例段落参考
-
----
-
-### quality-reviewer
-
-质量审查Agent,全面审查文档质量,提供改进建议。
-
-**核心能力**:
-- **内容质量评估**: 逻辑性、完整性、准确性
-- **风格一致性检查**: 语调、术语、格式统一性
-- **文体规范验证**: 符合学术/创意/专业规范
-- **技术规范审查**: Markdown格式、引用格式、编码规范
-
-**评分标准**:
-- 9-10分: 优秀,无明显问题
-- 7-8分: 良好,有少量小问题
-- 5-6分: 合格,需要改进
-- 3-4分: 不合格,问题较多
-- 1-2分: 严重不合格
-
----
-
-## 风格文档管理
-
-所有风格文档保存在 `writer_style/` 目录:
-
-### 文件命名规范
-
-- **风格指南**: `[project-name]_style.md`
-- **章节笔记**: `[project-name]_chapter[XX]_notes.md`
-- **角色档案**: `[project-name]_character_[name].md`
-- **研究笔记**: `[project-name]_research_[topic].md`
-- **修订日志**: `[project-name]_revision_log.md`
-
-### 风格文档结构
-
-风格文档包含:
-- 语言风格(语调、人称、时态)
-- 词汇特征(复杂度、术语)
-- 句式特征(句长、结构)
-- 结构特征(章节组织、格式)
-- 示例段落
-
----
-
-## 编码规范
-
-### 文件编码
-- **强制要求**: 所有文件使用 UTF-8 with BOM 编码
-- **中文支持**: 完整支持中英文双语内容
-- **PowerShell脚本**: 使用 `[System.Text.Encoding]::UTF8` 显式指定编码
-
-### 符号使用规范
-- **禁止使用emoji**: 在所有模板、命令、脚本中避免使用emoji
-- **纯文本替代**:
-  - [完成] 或 [PASS] 替代 ✅
-  - [失败] 或 [FAIL] 替代 ❌
-  - [注意] 或 [NOTE] 替代 📝
-  - [警告] 或 [WARNING] 替代 ⚠️
-  - [x] (Markdown复选框) 替代 ✓
-
----
-
-## 最佳实践
-
-### 1. 架构优先原则
-
-对于创意写作项目(小说、剧本等),始终先创建 `architecture.md` 文件:
-
-```markdown
-# 项目架构
-
-## 故事大纲
-[整体故事结构]
-
-## 主要角色
-[角色设定]
-
-## 世界观设定
-[世界观描述]
-
-## 主题和象征
-[主题元素]
+```
+specify_writer/
+├── .augment/                    # Augment Code配置
+│   ├── commands/writer/         # 8个命令文件
+│   └── rules/                   # 3个规则文件
+├── agents/                      # 7个专业Agent
+│   ├── research-specialist.md
+│   ├── design-architect.md
+│   ├── constitution-writer.md
+│   ├── outline-planner.md
+│   ├── compliance-validator.md
+│   ├── content-writer.md
+│   └── quality-reviewer.md
+├── scripts/powershell/          # 11个PowerShell脚本
+│   ├── init-writer-project.ps1
+│   ├── conduct-research.ps1
+│   ├── create-design.ps1
+│   ├── create-constitution.ps1
+│   ├── create-outline.ps1
+│   ├── validate-outline.ps1
+│   ├── write-chapter.ps1
+│   ├── finalize-project.ps1
+│   ├── common-functions.ps1
+│   ├── test-workflow.ps1
+│   └── integration-test.ps1
+├── templates/                   # 4个标准模板
+│   ├── research-report-template.md
+│   ├── design-document-template.md
+│   ├── constitution-template.md
+│   └── validation-report-template.md
+├── memory/                      # 知识库
+│   ├── writing-types.md
+│   ├── style-library.md
+│   └── quality-checklist.md
+├── examples/                    # 3个示例项目
+│   ├── sample-novel/
+│   ├── sample-paper/
+│   └── sample-screenplay/
+├── AGENTS.md                    # 系统架构文档
+├── USER_GUIDE.md                # 用户指南
+├── TESTING_GUIDE.md             # 测试指南
+└── README.md                    # 本文件
 ```
 
-### 2. 风格一致性
+---
 
-使用 `writer.style` 命令分析参考文本或定义风格指南,确保全文风格一致。
+## 💡 使用示例
 
-### 3. 定期审查
+### 示例1: 创建学术论文
 
-在完成每个章节后,使用 `writer.review` 命令进行质量检查。
+```bash
+# 1. 初始化项目
+/writer:init "LLM在数据治理中的应用研究"
 
-### 4. 版本管理
+# 2. 内容调研
+/writer:1-research
+# AI会询问：写作类型、目标受众、核心主题等
 
-为重要文档创建版本备份,使用版本号命名。
+# 3. 风格设计
+/writer:2-design
+# AI会设计：学术风格、论文结构、引用规范等
+
+# 4. 创作宪法
+/writer:3-constitution
+# AI会制定：质量标准、禁止事项、审查规则等
+
+# 5. 大纲编写
+/writer:4-outline
+# AI会规划：6章结构、每章内容、字数分配等
+
+# 6. 合规性审查
+/writer:5-validate
+# AI会验证：大纲是否符合宪法要求
+
+# 7. 章节编写
+/writer:6-draft -Chapter 1
+# AI会编写：第一章"绪论"，约5000字
+
+# 8. 最终审查
+/writer:7-finalize
+# AI会检查：全文质量、导出成品
+```
+
+### 示例2: 创建科幻小说
+
+```bash
+# 1. 初始化项目
+/writer:init "时光旅行者"
+
+# 2-5. 执行前五个阶段
+/writer:1-research
+/writer:2-design
+/writer:3-constitution
+/writer:4-outline
+/writer:5-validate
+
+# 6. 编写30章
+/writer:6-draft -Chapter 1
+/writer:6-draft -Chapter 2
+# ... 继续编写其他章节
+
+# 7. 最终审查
+/writer:7-finalize
+```
+
+### 示例3: 创建电影剧本
+
+```bash
+# 1. 初始化项目
+/writer:init "最后的代码"
+
+# 2-7. 执行完整流程
+/writer:1-research      # 确定类型：科幻惊悚
+/writer:2-design        # 设计风格：紧张、悬疑
+/writer:3-constitution  # 制定规则：剧本格式标准
+/writer:4-outline       # 规划：45个场景
+/writer:5-validate      # 验证：符合剧本规范
+/writer:6-draft         # 编写：各个场景
+/writer:7-finalize      # 审查：导出剧本
+```
 
 ---
 
-## 常见问题
+## 🧪 测试
 
-### Q1: 如何选择合适的文体类型?
+### 运行测试
 
-根据您的写作目标选择:
-- **学术研究** → academic (研究论文、文献综述)
-- **技术分享** → article (技术文章、教程)
-- **故事创作** → creative (小说、剧本、诗歌)
-- **工作文档** → professional (项目文档、技术规格)
+```powershell
+# 工作流测试（测试七阶段流程）
+.\scripts\powershell\test-workflow.ps1 -Scenario Academic
 
-### Q2: 风格文档是必需的吗?
+# 集成测试（测试系统集成）
+.\scripts\powershell\integration-test.ps1
+```
 
-不是必需的,但**强烈建议创建**。风格文档能帮助:
-- 保持长篇内容的一致性
-- 多人协作时统一风格
-- 续写时快速恢复原有风格
+### 测试结果
 
-### Q3: 可以混合使用多种文体吗?
+- ✅ 工作流测试: 8/8 通过 (100%)
+- ✅ 集成测试: 5/5 通过 (100%)
+- ✅ 总计: 13/13 通过 (100%)
 
-可以,但建议在一个项目中保持文体一致。如需混合,请:
-- 明确定义每个部分的文体要求
-- 为不同部分创建独立的风格文档
-- 在过渡部分特别注意风格衔接
-
-### Q4: 如何处理双语内容?
-
-系统完整支持中英文双语:
-- 所有文件使用UTF-8 with BOM编码
-- 自动处理中英文标点符号差异
-- 风格文档可分别定义中英文规范
+详见：[TEST_REPORT_FINAL.md](TEST_REPORT_FINAL.md)
 
 ---
 
-## 技术支持
+## 🔧 高级配置
 
-如遇到问题,请检查:
+### 自定义Agent
 
-1. **文件编码**: 确保为 UTF-8 with BOM
-2. **项目配置**: 检查 project-config.json 是否正确
-3. **命令参数**: 确认所有必需参数已提供
-4. **Agent调用**: 确认Agent配置文件存在
+您可以创建自己的Agent：
 
----
+1. 在`agents/`目录创建新的`.md`文件
+2. 添加Frontmatter（name, description）
+3. 包含`<example>`标签示例
+4. 定义职责、工作流程、输出格式
 
-## 更新日志
+### 自定义模板
 
-### v1.0 (2025-01-02)
-- [新增] 初始版本发布
-- [新增] 支持4大文体类型,19种具体文体
-- [新增] 提供6个核心命令
-- [新增] 提供3个专业Agent
-- [新增] 完整的模板系统(24个模板)
-- [新增] 通用组件和格式规范
+您可以创建自己的模板：
 
----
+1. 在`templates/`目录创建新的模板文件
+2. 使用占位符（如`{{title}}`, `{{author}}`）
+3. 在脚本中引用自定义模板
 
-## 许可证
+### 跨工具兼容性
 
-本项目为内部工具,仅供个人使用。
+本项目遵循`AGENTS.md`开放标准，兼容：
 
----
-
-## 致谢
-
-本工具集参考了以下设计理念:
-- `.specify` 文档模板系统
-- `.augment/commands` 命令机制
-- `.claude/agents/creative-writer.md` 创意写作Agent设计
-- `.claude/agents/content-writer.md` 内容写作Agent设计
+- ✅ **Augment Code** - 完全支持（推荐）
+- ✅ **Cursor** - 支持Agent和规则
+- ✅ **Windsurf** - 支持Agent定义
+- ✅ **Cline** - 支持基本功能
 
 ---
 
-**项目维护**: AI Assistant  
-**最后更新**: 2025-01-02  
-**文档版本**: v1.0
+## ❓ 常见问题
 
+### Q1: 适合什么样的写作项目？
+
+**A**: 适合需要系统化创作的长篇内容：
+- 学术论文（3-10万字）
+- 长篇小说（10-30万字）
+- 电影剧本（2-5万字）
+- 技术文档（1-5万字）
+
+### Q2: 必须按照七阶段流程吗？
+
+**A**: 建议按照流程执行，但可以根据需要调整：
+- 简单项目可以跳过某些阶段
+- 复杂项目可以在某个阶段多次迭代
+- 关键是保持结构化和质量控制
+
+### Q3: 如何确保内容质量？
+
+**A**: 系统提供多层质量保证：
+1. **创作宪法** - 制定明确的质量标准
+2. **合规性验证** - 验证大纲符合宪法
+3. **章节自查** - 每章编写后自我检查
+4. **最终审查** - 全文质量检查
+
+### Q4: 支持哪些AI工具？
+
+**A**: 支持主流AI编程工具：
+- Augment Code（推荐，完全支持）
+- Cursor（支持Agent和规则）
+- Windsurf（支持Agent定义）
+- Cline（支持基本功能）
+
+### Q5: 如何导出成品？
+
+**A**: 使用`/writer:7-finalize`命令：
+- 自动生成最终审查报告
+- 支持导出PDF、DOCX、EPUB等格式
+- 包含完整的质量检查
+
+---
+
+## 🤝 贡献
+
+欢迎贡献！您可以：
+
+1. 🐛 报告Bug
+2. 💡 提出新功能建议
+3. 📝 改进文档
+4. 🎨 贡献新的Agent或模板
+5. 🧪 添加测试用例
+
+**贡献流程**：
+
+1. Fork本项目
+2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启Pull Request
+
+---
+
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+
+---
+
+## 🙏 致谢
+
+感谢以下项目和团队：
+
+- **Augment Code** - 提供强大的AI编程工具
+- **DAMA-DMBOK** - 数据管理知识体系
+- **开源社区** - 宝贵的建议和支持
+
+---
+
+## 📞 联系方式
+
+- **项目主页**: https://github.com/zhangyang-crazy-one/Specs_Wrighter
+- **问题反馈**: https://github.com/zhangyang-crazy-one/Specs_Wrighter/issues
+- **文档**: 查看项目内的各个文档文件
+
+---
+
+<div align="center">
+
+**Specify Writer v1.1**
+
+*让AI辅助您的创作之旅* ✍️
+
+**最后更新**: 2025-11-03
+**项目状态**: ✅ 可投入使用
+
+[⬆ 返回顶部](#specify-writer)
+
+</div>

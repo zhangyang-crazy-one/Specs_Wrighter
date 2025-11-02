@@ -1,0 +1,147 @@
+# Cursor Rules for Specify Writer
+
+## Project Overview
+
+Specify Writer is a comprehensive seven-stage writing workflow system supporting multiple writing types (academic papers, novels, scripts, poetry, biographies, etc.).
+
+**Primary Rules File**: See `AGENTS.md` for complete project guidelines.
+
+---
+
+## Seven-Stage Workflow
+
+1. **Research & Type Determination** - Extract information, determine writing type
+2. **Style & Background Design** - Create style guide, worldview settings
+3. **Constitution Creation** - Define core principles and constraints
+4. **Outline & Plot Design** - Design complete plot and detailed outline
+5. **Compliance Validation** - Verify outline against constitution
+6. **Chapter-by-Chapter Writing** - Generate content following outline
+7. **Final Review & Export** - Complete review and export to formats
+
+---
+
+## Commands
+
+Use the following commands in Cursor:
+
+```bash
+# Initialize project
+/writer:init <project-name> [project-path]
+
+# Stage 1: Research
+/writer:1-research <project-dir> [source-material] [keywords]
+
+# Stage 2: Design
+/writer:2-design <project-dir> <writing-type>
+
+# Stage 3: Constitution
+/writer:3-constitution <project-dir>
+
+# Stage 4: Outline
+/writer:4-outline <project-dir> [chapter-count]
+
+# Stage 5: Validation
+/writer:5-validate <project-dir>
+
+# Stage 6: Draft
+/writer:6-draft <project-dir> <chapter-number>
+
+# Stage 7: Finalize
+/writer:7-finalize <project-dir> [export-format]
+```
+
+---
+
+## Code Style
+
+### Encoding
+- **All files**: UTF-8 encoding (without BOM)
+- **Line endings**: LF (Unix style)
+
+### Command Output
+- **NO emoji icons** - Use text markers instead:
+  - `[完成]` or `[PASS]` instead of ✅
+  - `[失败]` or `[FAIL]` instead of ❌
+  - `[注意]` or `[NOTE]` instead of 📝
+  - `[警告]` or `[WARNING]` instead of ⚠️
+
+### PowerShell Scripts
+- Must include `#!/usr/bin/env pwsh`
+- Must use `[CmdletBinding()]`
+- Must support `-Json` parameter
+- Must call `Set-Utf8Encoding` from common-functions.ps1
+- Must use `Write-StatusMessage` for output (no emoji)
+
+---
+
+## Key Principles
+
+1. **Follow the seven-stage sequence strictly** - Do not skip stages
+2. **Constitution file is law** - All content must comply with constitution
+3. **Validate before writing** - Stage 5 validation must pass before Stage 6
+4. **UTF-8 everywhere** - All files use UTF-8 encoding (no BOM)
+5. **No emoji in CLI** - Use text markers for cross-platform compatibility
+
+---
+
+## Project Structure
+
+```
+<ProjectName>/
+├── .writer/
+│   ├── config.json              # Project configuration
+│   ├── research/                # Stage 1: Research results
+│   ├── design/                  # Stage 2: Design documents
+│   ├── constitution/            # Stage 3: Constitution file
+│   ├── outline/                 # Stage 4: Outline
+│   ├── validation/              # Stage 5: Validation reports
+│   ├── drafts/                  # Stage 6: Chapter drafts
+│   └── final/                   # Stage 7: Final documents
+├── README.md
+└── .gitignore
+```
+
+---
+
+## Common Tasks
+
+### Start a new writing project
+1. Run `/writer:init "My Project"`
+2. Follow the seven-stage workflow in sequence
+3. Do not skip any stage
+
+### Validate outline
+1. Complete Stage 4 (outline)
+2. Run `/writer:5-validate <project-dir>`
+3. If validation fails, modify outline and re-validate
+4. Only proceed to Stage 6 after validation passes
+
+### Generate chapters
+1. Ensure Stage 5 validation passed
+2. Run `/writer:6-draft <project-dir> 1` for Chapter 1
+3. Run `/writer:6-draft <project-dir> 2` for Chapter 2
+4. Continue for all chapters
+
+---
+
+## Testing
+
+- All PowerShell scripts must have corresponding tests
+- Run tests before committing: `.\tests\Run-AllTests.ps1`
+- Test scenarios: academic paper, novel, screenplay
+
+---
+
+## References
+
+- **Complete guidelines**: `AGENTS.md`
+- **Augment Code rules**: `.augment/rules/`
+- **Task list**: `SEVEN_STAGE_WORKFLOW_TASKS.md`
+- **User guide**: `docs/USER_GUIDE.md` (when available)
+
+---
+
+**Version**: v1.0  
+**Last Updated**: 2025-11-02  
+**Compatible with**: Cursor, Augment Code, Windsurf, Cline
+
