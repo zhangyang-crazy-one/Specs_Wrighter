@@ -1,19 +1,50 @@
-# 操作系统文件
-.DS_Store
-Thumbs.db
-desktop.ini
+# Specify Writer - .gitignore
 
-# 编辑器和IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# ============================================
+# 测试和开发文件
+# ============================================
 
-# 临时文件
-*.tmp
-*.temp
-*.log
+# 测试项目目录
+test-projects/
+*.test/
+*-test/
+
+# ============================================
+# 开发过程文档（不需要发布）
+# ============================================
+
+# 研究文档
+AI_CODING_TOOLS_RESEARCH.md
+AUGMENT_CODE_RESEARCH.md
+WORKFLOW_RESEARCH_SUMMARY.md
+
+# 任务追踪文档
+TASK_TRACKER.md
+TASK_CHECKLIST.md
+SEVEN_STAGE_WORKFLOW_TASKS.md
+EXECUTION_PLAN.md
+IMPROVEMENT_TASKS.md
+IMPROVEMENT_TASKS_V2.md
+
+# 测试报告
+TEST_REPORT_*.md
+INTEGRATION_TEST_REPORT.md
+TESTING_GUIDE.md
+
+# 完成报告
+COMPLETION_SUMMARY.md
+PROJECT_COMPLETION_REPORT.md
+
+# 推送指南（仅本地使用）
+PUSH_TO_GITHUB.md
+
+# ============================================
+# 用户生成的内容
+# ============================================
+
+# 用户创建的写作项目
+*.writer/
+.writer/
 
 # 输出文件
 *.pdf
@@ -21,10 +52,67 @@ desktop.ini
 *.html
 output/
 exports/
-
-# 用户数据
-writer_style/
 finally_output_document/
+
+# ============================================
+# 操作系统文件
+# ============================================
+
+# Windows
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# ============================================
+# 编辑器和IDE
+# ============================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Vim/Emacs
+*.swp
+*.swo
+
+# ============================================
+# 临时文件和日志
+# ============================================
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*_backup
+*_old
+~$*
+
+# 日志文件
+*.log
+logs/
+
+# 缓存
+cache/
+.cache/
+
+# ============================================
+# 编程语言相关
+# ============================================
 
 # Python
 __pycache__/
@@ -38,7 +126,23 @@ env/
 node_modules/
 npm-debug.log*
 
-# 其他
+# ============================================
+# 环境配置
+# ============================================
+
 .env
 .env.local
+
+# ============================================
+# 保留的文件（不忽略）
+# ============================================
+
+# 保留示例项目
+!examples/
+
+# 保留核心文档
+!README.md
+!LICENSE
+!USER_GUIDE.md
+!AGENTS.md
 
