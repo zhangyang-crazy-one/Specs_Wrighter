@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-production-brightgreen.svg)](https://github.com/yourusername/specify-writer)
 
-[快速开始](#-快速开始) • [功能特性](#-功能特性) • [文档](#-文档) • [示例](#-使用示例)
+[快速开始](#-快速开始) • [功能特性](#-功能特性) • [文档](#-文档) • [示例](#-使用示例) • [脚本使用](#-脚本使用)
 
 </div>
 
@@ -104,11 +104,11 @@
 
 ### 核心优势
 
-✅ **结构化流程** - 七阶段确保创作过程系统化  
-✅ **质量保证** - 创作宪法和合规性验证  
-✅ **AI辅助** - 每个阶段都有专业Agent支持  
-✅ **跨工具兼容** - 支持主流AI编程工具  
-✅ **丰富模板** - 提供多种文体的专业模板  
+✅ **结构化流程** - 七阶段确保创作过程系统化
+✅ **质量保证** - 创作宪法和合规性验证
+✅ **AI辅助** - 每个阶段都有专业Agent支持
+✅ **跨工具兼容** - 支持主流AI编程工具
+✅ **丰富模板** - 提供多种文体的专业模板
 ✅ **示例项目** - 3个完整示例供参考
 
 ---
@@ -275,6 +275,165 @@ specify_writer/
 详见：[TEST_REPORT_FINAL.md](TEST_REPORT_FINAL.md)
 
 ---
+
+## 🔧 脚本使用
+
+### 脚本与命令的关系
+
+Specify Writer 提供了两种使用方式：
+
+1. **AI命令方式**（推荐）：使用 `/writer:*` 命令，AI会自动调用相应的脚本
+2. **直接脚本方式**：手动运行 PowerShell 脚本，适合自动化和批处理
+
+**关系说明**：
+- `/writer:init` → 调用 `init-writer-project.ps1`
+- `/writer:1-research` → 调用 `conduct-research.ps1`
+- `/writer:2-design` → 调用 `create-design.ps1`
+- 其他命令以此类推
+
+### 核心工作流脚本
+
+| 脚本名称 | 对应命令 | 主要参数 | 功能说明 |
+|---------|---------|---------|---------|
+| `init-writer-project.ps1` | `/writer:init` | `-ProjectName`, `-ProjectPath` | 初始化项目结构，创建必要的目录和配置文件 |
+| `conduct-research.ps1` | `/writer:1-research` | `-ProjectPath` | 执行内容调研，生成调研报告 |
+| `create-design.ps1` | `/writer:2-design` | `-ProjectPath` | 创建风格设计文档，定义写作风格 |
+| `create-constitution.ps1` | `/writer:3-constitution` | `-ProjectPath` | 生成创作宪法，制定质量标准 |
+| `create-outline.ps1` | `/writer:4-outline` | `-ProjectPath` | 创建详细大纲，规划章节结构 |
+| `validate-outline.ps1` | `/writer:5-validate` | `-ProjectPath` | 验证大纲合规性，生成验证报告 |
+| `write-chapter.ps1` | `/writer:6-draft` | `-ProjectPath`, `-ChapterNumber` | 编写指定章节内容 |
+| `finalize-project.ps1` | `/writer:7-finalize` | `-ProjectPath`, `-ExportFormat` | 最终审查和导出成品 |
+
+### 辅助脚本
+
+| 脚本名称 | 功能说明 |
+|---------|---------|
+| `common-functions.ps1` | 公共函数库，被其他脚本调用 |
+| `test-workflow.ps1` | 工作流测试脚本，验证七阶段流程 |
+| `integration-test.ps1` | 集成测试脚本，验证系统集成 |
+
+### 直接使用脚本示例
+
+#### 示例1: 初始化项目
+
+```powershell
+# 在当前目录创建项目
+.\scripts\powershell\init-writer-project.ps1 -ProjectName "我的小说"
+
+# 在指定目录创建项目
+.\scripts\powershell\init-writer-project.ps1 -ProjectName "我的小说" -ProjectPath "D:\Projects"
+```
+
+#### 示例2: 执行完整工作流
+
+```powershell
+# 设置项目路径
+$projectPath = ".\test-projects\my-novel"
+
+# 1. 初始化
+.\scripts\powershell\init-writer-project.ps1 -ProjectName "时光旅行者" -ProjectPath ".\test-projects"
+
+# 2. 内容调研
+.\scripts\powershell\conduct-research.ps1 -ProjectPath $projectPath
+
+# 3. 风格设计
+.\scripts\powershell\create-design.ps1 -ProjectPath $projectPath
+
+# 4. 创作宪法
+.\scripts\powershell\create-constitution.ps1 -ProjectPath $projectPath
+
+# 5. 大纲编写
+.\scripts\powershell\create-outline.ps1 -ProjectPath $projectPath
+
+# 6. 合规性验证
+.\scripts\powershell\validate-outline.ps1 -ProjectPath $projectPath
+
+# 7. 编写章节
+.\scripts\powershell\write-chapter.ps1 -ProjectPath $projectPath -ChapterNumber 1
+
+# 8. 最终审查
+.\scripts\powershell\finalize-project.ps1 -ProjectPath $projectPath -ExportFormat "PDF"
+```
+
+#### 示例3: 批量编写章节
+
+```powershell
+# 批量编写前10章
+$projectPath = ".\test-projects\my-novel"
+1..10 | ForEach-Object {
+    Write-Host "正在编写第 $_ 章..." -ForegroundColor Green
+    .\scripts\powershell\write-chapter.ps1 -ProjectPath $projectPath -ChapterNumber $_
+}
+```
+
+#### 示例4: 运行测试
+
+```powershell
+# 工作流测试 - 学术论文场景
+.\scripts\powershell\test-workflow.ps1 -Scenario Academic
+
+# 工作流测试 - 小说场景
+.\scripts\powershell\test-workflow.ps1 -Scenario Novel
+
+# 集成测试
+.\scripts\powershell\integration-test.ps1
+```
+
+### 脚本参数说明
+
+#### 通用参数
+
+- **`-ProjectPath`**: 项目路径（必需，除了 init 脚本）
+- **`-Verbose`**: 显示详细输出信息
+- **`-WhatIf`**: 预览操作但不实际执行
+
+#### 特定参数
+
+**`init-writer-project.ps1`**:
+- `-ProjectName`: 项目名称（必需）
+- `-ProjectPath`: 父目录路径（可选，默认当前目录）
+
+**`write-chapter.ps1`**:
+- `-ChapterNumber`: 章节编号（必需）
+- `-ChapterTitle`: 章节标题（可选）
+
+**`finalize-project.ps1`**:
+- `-ExportFormat`: 导出格式（可选：PDF, DOCX, EPUB, 默认 PDF）
+
+**`test-workflow.ps1`**:
+- `-Scenario`: 测试场景（可选：Academic, Novel, Screenplay, 默认 Academic）
+
+### 使用建议
+
+✅ **推荐使用 AI 命令**：
+- 更智能的交互体验
+- AI 会根据上下文调整参数
+- 自动处理错误和异常情况
+
+✅ **推荐使用脚本**：
+- 需要批量处理多个章节
+- 集成到 CI/CD 流程
+- 自动化测试和验证
+- 需要精确控制参数
+
+### 注意事项
+
+⚠️ **执行策略**：
+```powershell
+# 如果遇到执行策略限制，运行：
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+⚠️ **路径问题**：
+- 使用相对路径时，确保在正确的工作目录
+- 建议使用绝对路径避免路径错误
+
+⚠️ **依赖关系**：
+- 所有脚本都依赖 `common-functions.ps1`
+- 确保该文件在同一目录下
+
+---
+
 
 ## 🔧 高级配置
 
